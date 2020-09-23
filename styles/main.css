@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 .span{
-  font-family: 'Lobster';
+  font-family: 'Lobster', Arial, Helvetica, sans-serif;
   color: #a42;
   background: -webkit-linear-gradient(135deg, blue 35%, #ddf 50%, red 75%);
   -webkit-background-clip: text;
