@@ -18,7 +18,8 @@ const show = ( { target } ) => {
   
 let input = document.querySelector( 'input[type="search"]' );
 input.addEventListener( 'keyup', show );
-document.body.appendChild( myDiv );
+let main = document.querySelector( '#main' );
+main.appendChild( myDiv );
 
   let query = target.value.toLowerCase();
   query = query.replace( /\s{2,}/g, ' ' )
