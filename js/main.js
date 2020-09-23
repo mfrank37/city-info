@@ -6,7 +6,7 @@ fetch( url )
   .catch( error => console.log( `We have an Error:<< ${ error } >>` ) );
 let myDiv = document.createElement( 'div' );
 myDiv.setAttribute( 'class', 'results' );
-document.body.appendChild( myDiv );
+
 myDiv.style = 'margin-right:500px;margin-left:190px;background-color:#ccf;border-radius:5px;';
 const show = ( { target } ) => {
   myDiv.style.padding = "10px;";
@@ -15,6 +15,11 @@ const show = ( { target } ) => {
     document.querySelector('.results').innerHTML = `You have Inserted nothing. ${ target.children.length } result(s) found. Search for City or State`;
     return null;
   }
+  
+let input = document.querySelector( 'input[type="search"]' );
+input.addEventListener( 'keyup', show );
+document.body.appendChild( myDiv );
+
   let query = target.value.toLowerCase();
   query = query.replace( /\s{2,}/g, ' ' )
   query = query.trim();
@@ -115,6 +120,4 @@ const growth = p => {
      else
        return `<u style='text-decoration: none;color:green'>${ p }</u>`;
     }
-let input = document.querySelector( 'input[type="search"]' );
-input.addEventListener( 'keyup', show );
 console.log( 'App success!' );
