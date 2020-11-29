@@ -86,4 +86,87 @@ body::-webkit-scrollbar{
 .button:active{
   outline: none;
 }
-.results{width:633px;}
+.results {
+  width: 633px;
+  margin-right: 500px;
+  margin-left: 190px;
+  background-color: #ccf;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.loading-progress {
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.load {
+  background-color: #15a;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  animation: toggle-bg 10s cubic-bezier(0.375, 0.82, 0.565, 1) 0s infinite, z-rotate 2.5s cubic-bezier(0.375, 0.82, 0.565, 1) 0s infinite;
+}
+.load > * {
+  width: 20%;
+  height: 20%;
+  background: red;
+  border-radius: 50%;
+  animation: toggle-bg-rev 10s linear 0s infinite;
+
+}
+
+@keyframes toggle-bg {
+  0% {
+    background-color: #014;
+  }
+  25% {
+    background-color: white;
+  }
+  50% {
+    background-color: teal;
+  }
+  75% {
+    background-color: white;
+  }
+  100% {
+    background-color: #014;
+  }
+}
+@keyframes toggle-bg-rev {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #15a;
+  }
+  50% {
+    background-color: white;
+  }
+  75% {
+    background-color: #227;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+@keyframes z-rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
