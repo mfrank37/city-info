@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link href="styles/main.css" rel="stylesheet">
-        <script src="js/main.js"></script>
-        <title>City Info</title>
-    </head>
-    <body>
-        <main id="main">
-            <span class='span'>CityInfo</span>
-            <input type="search" placeholder="City or State">
-        </main>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <link href="styles/main.css" rel="stylesheet">
+    <title>City Info</title>
+</head>
+
+<body>
+    <span class='span'>CityInfo</span>
+    <input type="search" id="search" placeholder="City or State" autofocus>
+    <div class="loading-progress">
+        <div class="load">
+            <div class="ball1"></div>
+            <div class="ball2"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
 </html>
