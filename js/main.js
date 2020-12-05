@@ -7,20 +7,13 @@ const show = ({ target }) => {
     results.innerHTML = `You have Inserted nothing. ${ results.children.length } result(s) found. Search for City or State`;
     return null;
   }
-  // let input = document.querySelector('input[type="search"]');
-  // input.addEventListener('keyup', show);
-  // let main = document.querySelector('#main');
-  // main.appendChild(myDiv);
-  
   let query = target.value.toLowerCase();
   query = query.replace(/\s{2,}/g, ' ')
   query = query.trim();
   let finder = query.match(/^[a-z]/);
   if (finder === null) {
-    console.log('you have a non-string');
     results.innerHTML = `you have a non-string ${ query.charAt( 0 ) }. Please use a-zA-Z characters :)`;
     return null;
-    console.log(1);
   }
   CITIES.forEach(city => {
     if (query === city.city.slice(0, query.length).toLowerCase() || query === city.state.slice(0, query.length).toLowerCase()) {
@@ -64,7 +57,6 @@ clearSearch = () => {
   let results = document.querySelector('.results');
   if(results) {
     results.remove();
-    console.log('done')
   }
   results = document.createElement('div');
   results.classList.add('results');
@@ -113,7 +105,6 @@ const moreDetails = ({ target }) => {
   document.body.appendChild(fullScreen);
   document.body.appendChild(displayer);
   document.body.appendChild(button);
-  console.log('We have displayed it :)');
 }
 const close = () => {
   document.querySelector('button ').remove();
@@ -128,17 +119,22 @@ const growth = p => {
     return `<u style='text-decoration: none;color:green'>${ p }</u>`;
 }
 
-async function startApp() {
+const startApp = async () => {
   let cities = await fetch(url)
     .then(response => response.json())
     .catch(onrejected => console.log(`error: ${onrejected}`));
   window.CITIES = cities;
   let inputed = document.querySelector('#search');
   inputed.addEventListener('keyup', show);
-  
-  setTimeout(() => {
-    document.querySelector('.loading-progress').remove();
-  }, 1000);
+  if(cities){
+    setTimeout(() => {
+      document.querySelector('.loading-progress').remove();
+    }, 4000);
+  } else {
+    setTimeout(() => {
+      location.reload();
+    }, 15000);
+  }
 }
 
 startApp();
